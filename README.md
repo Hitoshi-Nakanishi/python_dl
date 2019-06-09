@@ -8,3 +8,9 @@ docker build -t “debian-webdev3:dev” .
 ```
 
 3. Enjoy your life
+
+## Examples
+```shell
+cp Dockerfile_tensorflow12_and_Pytorch_GPU_py3_cu9 Dockerfile
+docker build -t "37pttf3:9.0" .
+```
