@@ -14,9 +14,7 @@ docker run \
 # WORK
 
 # 37pttf3:9.0
-# ERROR
-# InternalError: failed initializing StreamExecutor for CUDA device ordinal 0: Internal: failed call to cuDevicePrimaryCtxRetain: CUDA_ERROR_OUT_OF_MEMORY:
-# out of memory; total memory reported: 12804685824
+# x37_tf_006
 
 # 37pttf3:dev
 # ERROR
