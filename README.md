@@ -1,16 +1,32 @@
-# How to use Dockerfiles
-1. Rename Dockerfile_xxxxx to Dockerfile
+# How to set up your machine learning environment using docker
 
-2. Create docker image blelow command
+1. Select the environment from the flie list under environments/ and copy the file Dockerfile_xxxxx to Dockerfile
 
 ```shell
-docker build -t “debian-webdev3:dev” .
+cp -r environments/Dockerfile_xxxxx Dockerfile
 ```
 
-3. Enjoy your life
+2. Create docker image based on Dockerfile
 
-## Examples
 ```shell
-cp Dockerfile_tensorflow12_and_Pytorch_GPU_py3_cu9 Dockerfile
-docker build -t "37pttf3:9.0" .
+docker build -t "docker_image_name" .
+```
+
+3. Create docker container based on the docker image
+
+Please set your docker image name and container name inside docker_start.sh file.
+
+```shell
+start.sh
+```
+
+4. Enjoy your life
+
+# Examples
+### tensorflow 1.12.0 + pytorch (GPU) cuda 9.0
+
+```shell
+cp environments/Dockerfile_tensorflow12_and_Pytorch_GPU_py3_cu9 Dockerfile
+docker build -t "37s_MLenv" .
+start.sh
 ```
