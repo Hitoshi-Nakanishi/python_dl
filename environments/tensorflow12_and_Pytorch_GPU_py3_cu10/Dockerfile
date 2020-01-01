@@ -1,5 +1,3 @@
-# Dockerfile_tensorflow12_and_Pytorch_GPU_py3_cu10
-
 FROM nvidia/cuda:10.1-cudnn7-runtime-ubuntu16.04
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \

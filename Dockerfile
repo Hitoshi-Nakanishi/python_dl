@@ -1,6 +1,3 @@
-# 37pttf3:9.0
-# Tensorflow:1.12
-
 FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
