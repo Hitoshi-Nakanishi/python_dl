@@ -3,7 +3,7 @@
 1. Select the environment from the flie list under environments/ and copy the file Dockerfile_xxxxx to Dockerfile
 
 ```shell
-cp -r environments/Dockerfile_xxxxx Dockerfile
+cp -r environments/xxxxx/Dockerfile Dockerfile
 ```
 
 2. Create docker image based on Dockerfile
