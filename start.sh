@@ -2,6 +2,6 @@
 docker run \
        -v /share2/hitoshin/DockerShared:/notebooks/DockerShared \
        --runtime=nvidia \
-       -p 16884:8888 -p 12884:6006 \
-       --name docker_container_name \
-       -it docker_image_name
+       -p 16684:8888 -p 12684:6006 \
+       --name hitoshi_container \
+       -it hitoshi/python-gpu-build:latest

@@ -1,0 +1,6 @@
+DOCKERFILE='gpu.Dockerfile'
+IMAGE_TAG='hitoshi/python-gpu-build'
+readonly DOCKERFILE
+readonly IMAGE_TAG
+set -x
+docker build --rm --pull --no-cache -t "$IMAGE_TAG" -f "$DOCKERFILE" .
