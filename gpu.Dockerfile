@@ -21,6 +21,7 @@ RUN conda update -y conda && \
    conda install -y python=3.6 numpy scipy matplotlib seaborn scikit-learn tqdm pandas tensorflow-gpu && \
    conda install -y pytorch torchvision -c pytorch && \
    conda install -y scikit-image jupyterlab moviepy -c conda-forge && \
+   conda install -c conda-forge umap-learn && \
    conda clean -ya && \
    pip install tensorboardX
 
