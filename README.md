@@ -1,12 +1,18 @@
 # How to set up your machine learning environment using docker
 
-1. Select the environment from the flie list under environments/ and copy the file Dockerfile_xxxxx to Dockerfile
-
+1. Select the environment from the flie list under environments/ and copy the file Dockerfile_xxx to gpu.Dockerfile
+By default, it's the latest environment for deep learning.
 ```shell
-cp -r environments/xxxxx/Dockerfile Dockerfile
+cp -r environments/xxxxx/Dockerfile gpu.Dockerfile
 ```
 
-2. Create docker image based on Dockerfile
+2. Build docker image based on Dockerfile
+
+```shell
+./build
+```
+
+or run with your specific name
 
 ```shell
 docker build -t "docker_image_name" .
@@ -23,10 +29,9 @@ start.sh
 4. Enjoy your life
 
 # Examples
-### tensorflow 1.12.0 + pytorch (GPU) cuda 9.0
+### tensorflow 2.X + pytorch 1.5 (GPU) under ubuntu 18.04 + cuda 10.1
 
 ```shell
-cp environments/Dockerfile_tensorflow12_and_Pytorch_GPU_py3_cu9 Dockerfile
-docker build -t "37s_MLenv" .
+./build
 start.sh
 ```
