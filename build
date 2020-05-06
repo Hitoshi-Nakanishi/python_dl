@@ -1,4 +1,4 @@
-DOCKERFILE='gpu.Dockerfile'
+DOCKERFILE='Dockerfile'
 IMAGE_TAG='x37n/python_dl-gpu'
 readonly DOCKERFILE
 readonly IMAGE_TAG
