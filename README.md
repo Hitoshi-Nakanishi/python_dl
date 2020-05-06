@@ -1,4 +1,4 @@
-# How to set up your machine learning environment using docker
+# python_dl: simple docker image for deep learning
 
 1. Select the environment from the flie list under environments/ and copy the file Dockerfile_xxx to gpu.Dockerfile
 By default, it's the latest environment for deep learning.
