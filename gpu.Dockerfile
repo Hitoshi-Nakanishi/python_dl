@@ -1,15 +1,6 @@
 FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        build-essential \
-        cmake \
-        git \
-        wget \
-        emacs \
-        tmux \
-        htop \
-        ca-certificates \
-        libjpeg-dev \
-        libpng-dev &&\
+        build-essential cmake git wget emacs tmux htop ca-certificates libjpeg-dev libpng-dev &&\
     rm -rf /var/lib/apt/lists/*
 
 RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
@@ -18,12 +9,12 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86
 ENV PATH /opt/conda/bin:$PATH
 
 RUN conda update -y conda && \
-   conda install -y python=3.6 numpy scipy matplotlib seaborn scikit-learn tqdm pandas tensorflow-gpu && \
-   conda install -y pytorch torchvision -c pytorch && \
-   conda install -y scikit-image jupyterlab moviepy -c conda-forge && \
-   conda install -c conda-forge umap-learn && \
-   conda clean -ya && \
-   pip install tensorboardX
+    conda install -y python=3.8 numpy scipy matplotlib seaborn scikit-learn tqdm pandas tensorflow-gpu && \
+    conda install -y pytorch torchvision -c pytorch && \
+    conda install -y scikit-image jupyterlab moviepy -c conda-forge && \
+    conda install -c conda-forge umap-learn && \
+    conda clean -ya && \
+    pip install pyyaml
 
 ARG SERVER_NAME="X37"
 
