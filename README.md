@@ -1,5 +1,11 @@
 # python_dl: simple docker image for deep learning
 
+docker link
+```
+1. https://hub.docker.com/repository/docker/x37n/python_dl/general
+2. (automated build) https://hub.docker.com/repository/docker/x37n/python_dl/general
+```
+
 1. Select the environment from the flie list under environments/ and copy the file Dockerfile_xxx to gpu.Dockerfile
 By default, it's the latest environment for deep learning.
 ```shell
