@@ -9,7 +9,7 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86
 ENV PATH /opt/conda/bin:$PATH
 
 RUN conda update -y conda && \
-    conda install -y python=3.8 numpy scipy matplotlib seaborn scikit-learn tqdm pandas tensorflow-gpu && \
+    conda install -y python=3.7 numpy scipy matplotlib seaborn scikit-learn tqdm pandas tensorflow-gpu && \
     conda install -y pytorch torchvision -c pytorch && \
     conda install -y scikit-image jupyterlab moviepy -c conda-forge && \
     conda install -c conda-forge umap-learn && \
