@@ -1,5 +1,5 @@
 DOCKERFILE='gpu.Dockerfile'
-IMAGE_TAG='hitoshi/python-gpu-build'
+IMAGE_TAG='x37n/python_dl-gpu'
 readonly DOCKERFILE
 readonly IMAGE_TAG
 set -x

@@ -4,4 +4,4 @@ docker run \
        --runtime=nvidia \
        -p 16684:8888 -p 12684:6006 \
        --name hitoshi_container \
-       -it hitoshi/python-gpu-build:latest
+       -it x37n/python_dl-gpu:latest
