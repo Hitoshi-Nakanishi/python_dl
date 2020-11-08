@@ -1,5 +1,5 @@
 DOCKERFILE='Dockerfile'
-IMAGE_TAG='x37n/python_dl-gpu'
+IMAGE_TAG='hitoshi/python-gpu:10.1-ubuntu18.04-F22T17'
 readonly DOCKERFILE
 readonly IMAGE_TAG
 set -x
