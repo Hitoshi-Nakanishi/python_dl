@@ -6,38 +6,39 @@ docker link
 2. (automated build) https://hub.docker.com/repository/docker/x37n/python_dl/general
 ```
 
-1. Select the environment from the flie list under environments/ and copy the file Dockerfile_xxx to gpu.Dockerfile
-By default, it's the latest environment for deep learning.
-```shell
-cp -r environments/xxxxx/Dockerfile gpu.Dockerfile
-```
+- This dockerfile aims to zsh, load anaconda, python, tensorflow, pytorch, several statistical library, and jupyterlab.
+- From this repository, dockerHub automatically build latest image. Current latest file is built under the versions below
+    - os: ubuntu 18.04
+    - cuda: 10.1
+    - cudnn7-devel
+    - PyTorch: 1.7.0
+    - torchvision: 0.8.1
+    - tensorflow-gpu: 2.X
 
-2. Build docker image based on Dockerfile
-
+1. Build docker image based on Dockerfile. You can edit docker image name in this file.
 ```shell
 ./build
 ```
-
-or run with your specific name
-
+or you can create image manually.
 ```shell
 docker build -t "docker_image_name" .
 ```
 
-3. Create docker container based on the docker image
-
-Please set your docker image name and container name inside docker_start.sh file.
-
+2. Create docker container based on the created docker image
+- Please set your docker image name and container name inside docker_start.sh file.
+- This shell scripts mount volume into docker container. Basically data should be saved outside of docker image, and you may connect some volume.
 ```shell
 start.sh
 ```
 
-4. Enjoy your life
-
-# Examples
-### tensorflow 2.X + pytorch 1.5 (GPU) under ubuntu 18.04 + cuda 10.1
-
+In container, it calls zsh as default. You can open juputerlab by
 ```shell
-./build
-start.sh
+jupyter lab --ip=0.0.0.0 --port=8888 --allow-root
 ```
+
+and you can see the logs at tensorboard by
+```shell
+tensorboard --logdir=<your logging directory>
+```
+
+You can also see backlogs for old Dockerfiles. Good Luck :wink:
