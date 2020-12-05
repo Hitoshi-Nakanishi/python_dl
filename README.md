@@ -41,4 +41,13 @@ and you can see the logs at tensorboard by
 tensorboard --logdir=<your logging directory>
 ```
 
+3. Once you generated docker image, you can save it to share different servers.
+```shell
+docker save hitoshi/python-dl:10.1-ubuntu18.04-F22T17-v2 > hitoshi_python_dl_101_ubuntu1804_F22T17_v2.tar
+```
+From tar file, you can load it without rebuilding.
+```shell
+docker load < hitoshi_python_dl_101_ubuntu1804_F22T17_v2.tar
+```
+
 You can also see backlogs for old Dockerfiles. Good Luck :wink:
