@@ -48,7 +48,7 @@ RUN echo "c.NotebookApp.ip = '*'" >> /root/.jupyter/jupyter_notebook_config.py &
 EXPOSE 8888
 EXPOSE 6006
 WORKDIR /notebooks/DockerShared
-CMD ["/bin/zsh", "-c"]
+CMD ["zsh"]
 
 # if you want to run jupyter lab, please call below. port 8888 is open.
 # CMD jupyter lab --ip=0.0.0.0 --port=8888 --allow-root
