@@ -1,0 +1,6 @@
+DOCKERFILE='Dockerfile'
+IMAGE_TAG='hitoshi/python-dl:9.0-ubuntu16.04-F22T17'
+readonly DOCKERFILE
+readonly IMAGE_TAG
+set -x
+docker build --rm --pull --no-cache -t "$IMAGE_TAG" -f "$DOCKERFILE" .

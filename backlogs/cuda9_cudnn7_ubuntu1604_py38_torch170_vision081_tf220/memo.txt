@@ -1,0 +1,20 @@
+lily runtime error
+
+docker: Error response from daemon: OCI runtime create failed: container_linux.go:346: starting container process caused "process_linux.go:449: container init caused \"process_linux.go:432: running prestart hook 1 caused \\\"error running hook: exit status 1, stdout: , stderr: nvidia-container-cli: initialization error: driver error: timed out\\\\n\\\"\"": unknown.
+
+hostmachine info
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 418.56       Driver Version: 418.56       CUDA Version: 10.1     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Quadro RTX 8000     Off  | 00000000:03:00.0 Off |                  Off |
+| 34%   48C    P8    24W / 260W |     10MiB / 48570MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   1  Quadro RTX 8000     Off  | 00000000:81:00.0 Off |                  Off |
+|ERR!   60C    P2   ERR! / 260W |  26011MiB / 48571MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   2  Quadro RTX 8000     Off  | 00000000:82:00.0 Off |                  Off |
+| 33%   36C    P8    13W / 260W |     10MiB / 48571MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
