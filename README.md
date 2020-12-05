@@ -49,5 +49,10 @@ From tar file, you can load it without rebuilding.
 ```shell
 docker load < hitoshi_python_dl_101_ubuntu1804_F22T17_v2.tar
 ```
+You can rename image tag by the following command line.
+```shell
+docker image tag hitoshi/python-dl:10.1-ubuntu18.04-F22T17 hitoshi/python-dl:10.1-ubuntu18.04-F22T17-v2
+```
+
 
 You can also see backlogs for old Dockerfiles. Good Luck :wink:
