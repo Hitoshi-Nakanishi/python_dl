@@ -29,6 +29,7 @@ RUN conda update -y conda && \
    conda install -y scikit-image jupyterlab moviepy -c conda-forge && \
    conda clean -ya && \
    pip install PyYAML tensorboardX && \
+   pip install gpuutils && \
    pip install opencv-python
 
 ARG SERVER_NAME="X37"
