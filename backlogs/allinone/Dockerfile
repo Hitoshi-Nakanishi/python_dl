@@ -1,5 +1,9 @@
 FROM nvidia/cuda:11.2.2-cudnn8-devel-ubuntu18.04
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && \
+    apt-get install software-properties-common \
+    apt-add-repository ppa:git-core/ppa \
+    apt-get update \
+    apt-get install -y --no-install-recommends \
     make build-essential cmake less \
     git wget curl zsh emacs tmux htop \
     ocaml opam m4 libcairo2-dev libzmq3-dev swig graphviz \
@@ -23,6 +27,7 @@ RUN conda update -y conda && \
     conda clean -ya && \
     pip install PyYAML tensorboardX black && \
     pip install tensorflow-datasets tensorflow-addons && \
+    pip install torchinfo && \
     pip install dill sexpdata pygame pycairo cairocffi psutil pypng Box2D-kengz graphviz frozendict pathos && \
     pip install einops yapf && \
     pip install --upgrade jax jaxlib==0.1.65+cuda112 -f https://storage.googleapis.com/jax-releases/jax_releases.html && \
