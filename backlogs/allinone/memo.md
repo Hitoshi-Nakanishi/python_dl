@@ -15,3 +15,8 @@
 
 # p-4
 8213 8313
+
+
+
+# docker commands
+docker commit hitoshi_attention_sampling_jax hitoshi/allinone:python38_flax032

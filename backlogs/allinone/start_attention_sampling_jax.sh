@@ -12,7 +12,6 @@ docker run \
        --runtime=nvidia \
        -p $1:8888 -p $2:6006 \
        -e LUID=$(id -u $USER) -e LGID=$(id -g $USER) \
-       --name hitoshi_all \
-       -it hitoshi/allinone:latest
-
-# -u $(id -u $USER):$(id -g $USER) \
+       --name hitoshi_attention_sampling_jax \
+       -it hitoshi/allinone:python38_flax032
+       #-it hitoshi/allinone:python37_tf1_15
