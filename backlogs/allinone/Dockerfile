@@ -30,7 +30,7 @@ RUN conda update -y conda && \
     pip install torchinfo && \
     pip install dill sexpdata pygame pycairo cairocffi psutil pypng Box2D-kengz graphviz frozendict pathos && \
     pip install einops yapf && \
-    pip install --upgrade jax jaxlib==0.1.65+cuda112 -f https://storage.googleapis.com/jax-releases/jax_releases.html && \
+    pip install "jax[cuda11_cudnn805]>0.2.24" -f https://storage.googleapis.com/jax-releases/jax_releases.html && \
     pip install flax chex optax absl-py clu ml-collections && \
     pip install gpuutils && \
     pip install opencv-python
