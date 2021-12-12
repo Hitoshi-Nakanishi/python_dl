@@ -1,14 +1,11 @@
 FROM nvidia/cuda:11.2.2-cudnn8-devel-ubuntu18.04
 RUN apt-get update && \
-    apt-get install software-properties-common \
-    apt-add-repository ppa:git-core/ppa \
-    apt-get update \
+    apt-get install -y software-properties-common && \
+    apt-add-repository ppa:git-core/ppa && \
+    apt-get update && \
     apt-get install -y --no-install-recommends \
-    make build-essential cmake less \
-    git wget curl zsh emacs tmux htop \
-    ocaml opam m4 libcairo2-dev libzmq3-dev swig graphviz \
-    libgl1-mesa-dev \
-    ca-certificates libjpeg-dev libpng-dev && \
+    make build-essential cmake less git wget curl zsh emacs tmux htop ocaml opam m4 swig graphviz \
+    libcairo2-dev libzmq3-dev libgl1-mesa-dev ca-certificates libjpeg-dev libpng-dev && \
     rm -rf /var/lib/apt/lists/*
 
 SHELL ["/bin/zsh", "-c"]
@@ -25,15 +22,12 @@ RUN conda update -y conda && \
     conda install -y scikit-image jupyterlab moviepy -c conda-forge && \
     conda install -y dill pyzmq protobuf && \
     conda clean -ya && \
-    pip install PyYAML tensorboardX black && \
     pip install tensorflow-datasets tensorflow-addons && \
-    pip install torchinfo && \
     pip install dill sexpdata pygame pycairo cairocffi psutil pypng Box2D-kengz graphviz frozendict pathos && \
-    pip install einops yapf && \
-    pip install "jax[cuda11_cudnn805]>0.2.24" -f https://storage.googleapis.com/jax-releases/jax_releases.html && \
+    pip install "jax[cuda11_cudnn805]==0.2.25" -f https://storage.googleapis.com/jax-releases/jax_releases.html && \
     pip install flax chex optax absl-py clu ml-collections && \
-    pip install gpuutils && \
-    pip install opencv-python
+    pip install PyYAML tensorboardX black && \
+    pip install torchinfo einops yapf gpuutils opencv-python
 
 ARG SERVER_NAME="X37"
 RUN jupyter notebook --generate-config && ipython profile create
