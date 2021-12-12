@@ -55,4 +55,12 @@ docker image tag hitoshi/python-dl:10.1-ubuntu18.04-F22T17 hitoshi/python-dl:10.
 ```
 
 
+# docker commands
+to update image(hitoshi/allinone:latest) from container (hitoshi_all)
+```bash
+docker commit hitoshi_all hitoshi/allinone:latest
+```
+
+
+
 You can also see backlogs for old Dockerfiles. Good Luck :wink:
