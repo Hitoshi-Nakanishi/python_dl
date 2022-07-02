@@ -12,7 +12,7 @@ docker run \
        --runtime=nvidia \
        -p $1:8888 -p $2:6006 \
        -e LUID=$(id -u $USER) -e LGID=$(id -g $USER) \
-       --name hitoshi_all82 \
-       -it hitoshi/allinone:cuda115
+       --name hitoshi_all \
+       -it hitoshi/allinone:latest
 
 # -u $(id -u $USER):$(id -g $USER) \

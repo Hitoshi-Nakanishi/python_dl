@@ -1,5 +1,4 @@
-FROM nvidia/cuda:11.5.0-cudnn8-devel-ubuntu18.04
-
+FROM nvidia/cuda:11.2.2-cudnn8-devel-ubuntu18.04
 RUN apt-get update && \
     apt-get install -y software-properties-common && \
     apt-add-repository ppa:git-core/ppa && \
@@ -25,7 +24,7 @@ RUN conda update -y conda && \
     conda clean -ya && \
     pip install tensorflow-datasets tensorflow-addons && \
     pip install dill sexpdata pygame pycairo cairocffi psutil pypng Box2D-kengz graphviz frozendict pathos && \
-    pip install "jax[cuda11_cudnn82]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html && \
+    pip install "jax[cuda11_cudnn805]==0.2.25" -f https://storage.googleapis.com/jax-releases/jax_releases.html && \
     pip install flax chex optax absl-py clu ml-collections && \
     pip install PyYAML tensorboardX black && \
     pip install torchinfo einops yapf gpuutils opencv-python
