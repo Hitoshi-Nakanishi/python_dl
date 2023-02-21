@@ -9,6 +9,7 @@ docker run \
        -v /share2/hitoshin/DockerShared:/notebooks/DockerShared2 \
        -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro \
        -v ~/log:/root/log \
+       -v /dev/shm:/dev/shm \
        --runtime=nvidia \
        -p $1:8888 -p $2:6006 \
        -e LUID=$(id -u $USER) -e LGID=$(id -g $USER) \
