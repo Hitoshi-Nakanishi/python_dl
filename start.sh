@@ -16,11 +16,19 @@ docker run \
   -p $1:8888 -p $2:6006 \
   -e LUID=$(id -u $USER) -e LGID=$(id -g $USER) \
   -e DISPLAY=$DISPLAY \
-  --name hitoshi_allX \
-  -it hitoshi/allinone:$3 \
+  --device /dev/dri \
+  --gpus 'all,"capabilities=compute,utility,graphics"' \
+  -e NVIDIA_VISIBLE_DEVICES=all \
+  -e NVIDIA_DRIVER_CAPABILITIES=all \
+  -e __GLX_VENDOR_LIBRARY_NAME=nvidia \
+  -e __NV_PRIME_RENDER_OFFLOAD=1 \
+  --net host \
+  --name hitoshinc \
+  -it hitoshi/cuda11.2:$3 \
   /bin/bash -c " \
   cp /root/.Xauthority.copy /root/.Xauthority; \
-  chown root:root /root/.Xauthority;"
+  chown root:root /root/.Xauthority; \
+  zsh"
 
 
 # -u $(id -u $USER):$(id -g $USER) \
