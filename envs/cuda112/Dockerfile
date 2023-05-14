@@ -7,7 +7,7 @@ RUN apt-get update && \
     apt-add-repository ppa:git-core/ppa && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
-        make build-essential cmake less git wget curl zsh emacs tmux htop tzdata \
+        make build-essential cmake less git wget curl zsh emacs vim tmux htop tzdata \
         libcairo2-dev libzmq3-dev libgl1-mesa-dev ca-certificates libjpeg-dev libpng-dev \
 	mesa-utils x11-apps x11-xserver-utils dbus xorg-dev libglu1-mesa-dev xvfb libstdc++6 \
 	ocaml opam m4 swig graphviz && \
@@ -41,19 +41,18 @@ RUN conda update -y conda && \
     pip install torchinfo gpuutils
 
 ARG SERVER_NAME="X37"
+ARG JUPYTER_PATH=/root/.jupyter/jupyter_notebook_config.py
 RUN jupyter notebook --generate-config && ipython profile create
-RUN echo "c.ServerApp.ip = '*'" >> /root/.jupyter/jupyter_notebook_config.py && \
-    echo "c.ServerApp.open_browser = False" >> /root/.jupyter/jupyter_notebook_config.py && \
-    echo "c.ServerApp.password = 'sha1:7338924eb686:b219e86a5e482c9490fd860be0d34924b17a1c00'" >> \
-        /root/.jupyter/jupyter_notebook_config.py && \
-    echo "c.ServerApp.base_url = '/$SERVER_NAME/'" >> /root/.jupyter/jupyter_notebook_config.py && \
-    echo "c.ServerApp.base_project_url = '/$SERVER_NAME/'" >> /root/.jupyter/jupyter_notebook_config.py && \
-    echo "c.ServerApp.webapp_settings = {'static_url_prefix':'/$SERVER_NAME/static/'}" >> \
-        /root/.jupyter/jupyter_notebook_config.py && \
-   echo "c.InteractiveShellApp.matplotlib = 'inline'" >>/root/.ipython/profile_default/ipython_config.py
+RUN echo "c.ServerApp.ip = '*'" >> $JUPYTER_PATH && \
+    echo "c.ServerApp.open_browser = False" >> $JUPYTER_PATH && \
+    echo "c.ServerApp.password = 'sha1:7338924eb686:b219e86a5e482c9490fd860be0d34924b17a1c00'" >> $JUPYTER_PATH && \
+    echo "c.ServerApp.base_url = '/$SERVER_NAME/'" >> $JUPYTER_PATH && \
+    echo "c.ServerApp.base_project_url = '/$SERVER_NAME/'" >> $JUPYTER_PATH && \
+    echo "c.ServerApp.webapp_settings = {'static_url_prefix':'/$SERVER_NAME/static/'}" >> $JUPYTER_PATH && \
+    echo "c.InteractiveShellApp.matplotlib = 'inline'" >>/root/.ipython/profile_default/ipython_config.py && \
+    echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/conda/lib" >> /root/.zshrc && \
+    echo "export CUDA_HOME=/usr/local/cuda" >> /root/.zshrc
 
-EXPOSE 8888
-EXPOSE 6006
 WORKDIR /notebooks/DockerShared
 CMD ["zsh"]
 
