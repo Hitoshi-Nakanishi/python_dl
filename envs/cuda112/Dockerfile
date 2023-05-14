@@ -53,6 +53,8 @@ RUN echo "c.ServerApp.ip = '*'" >> $JUPYTER_PATH && \
     echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/conda/lib" >> /root/.zshrc && \
     echo "export CUDA_HOME=/usr/local/cuda" >> /root/.zshrc
 
+RUN conda init zsh
+
 WORKDIR /notebooks/DockerShared
 CMD ["zsh"]
 

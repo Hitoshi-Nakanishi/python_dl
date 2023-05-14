@@ -13,7 +13,6 @@ docker run \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   --mount type=bind,source=$HOME/.Xauthority,target=/root/.Xauthority.copy \
   --runtime=nvidia \
-  -p $1:8888 -p $2:6006 \
   -e LUID=$(id -u $USER) -e LGID=$(id -g $USER) \
   -e DISPLAY=$DISPLAY \
   --device /dev/dri \
@@ -24,7 +23,7 @@ docker run \
   -e __NV_PRIME_RENDER_OFFLOAD=1 \
   --net host \
   --name hitoshinc \
-  -it hitoshi/cuda11.2:$3 \
+  -it hitoshi/cuda11.2:$1 \
   /bin/bash -c " \
   cp /root/.Xauthority.copy /root/.Xauthority; \
   chown root:root /root/.Xauthority; \
