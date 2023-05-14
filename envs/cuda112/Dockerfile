@@ -31,7 +31,7 @@ RUN conda update -y conda && \
     conda install -y tensorboardx progressbar2 ipdb yapf black && \
     conda clean -ya && \
     pip install opencv-python && \
-    pip install "jax==0.4.6" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html && \
+    pip install jax==0.4.6 -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html && \
     pip install jaxlib==0.4.6 && \
     pip install flax==0.6.3 && \
     pip install tensorflow==2.9.1 && \
