@@ -6,6 +6,7 @@
 
 docker run \
   -v /home/hitoshin:/notebooks/DockerShared \
+  -v /mnt/d:/notebooks/DockerShared4 \
   -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro \
   -v ~/log:/root/log \
   -v /dev/shm:/dev/shm \
@@ -19,7 +20,7 @@ docker run \
   -e __GLX_VENDOR_LIBRARY_NAME=nvidia \
   -e __NV_PRIME_RENDER_OFFLOAD=1 \
   --network host \
-  --name hitoshnc \
+  --name hitoshinc \
   -it hitoshi/cuda11.2:$1 \
   zsh
 
