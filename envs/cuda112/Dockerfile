@@ -24,6 +24,9 @@ ENV PATH /opt/conda/bin:$PATH
 RUN conda update -y conda && \
     conda install -n base conda-libmamba-solver && \
     conda config --set solver libmamba && \
+    conda init zsh && \
+    source ~/.zshrc && \
+    conda activate base && \
     conda install -y python=3.9 numpy pandas scipy matplotlib seaborn scikit-learn tqdm && \
     conda install -y jupyterlab scikit-image imageio pillow moviepy -c conda-forge && \
     conda install -y dill pyzmq protobuf && \
@@ -41,8 +44,8 @@ RUN conda update -y conda && \
     pip install torchinfo gpuutils
 
 ARG SERVER_NAME="X37"
-ARG JUPYTER_PATH=/root/.jupyter/jupyter_notebook_config.py
-RUN jupyter notebook --generate-config && ipython profile create
+ARG JUPYTER_PATH=/root/.jupyter/jupyter_lab_config.py
+RUN jupyter lab --generate-config && ipython profile create
 RUN echo "c.ServerApp.ip = '*'" >> $JUPYTER_PATH && \
     echo "c.ServerApp.open_browser = False" >> $JUPYTER_PATH && \
     echo "c.ServerApp.password = 'sha1:7338924eb686:b219e86a5e482c9490fd860be0d34924b17a1c00'" >> $JUPYTER_PATH && \
