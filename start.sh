@@ -6,7 +6,7 @@
 
 docker run \
   -v /share3/hitoshin/DockerShared:/notebooks/DockerShared \
-  -v /share2/hitoshin/DockerShared:/notebooks/DockerShared2 \
+  -v /share/hitoshin/DockerShared:/notebooks/DockerShared1 \
   -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro \
   -v ~/log:/root/log \
   -v /dev/shm:/dev/shm \

@@ -6,7 +6,7 @@
 
 docker run \
   -v /share3/hitoshin/DockerShared:/notebooks/DockerShared \
-  -v /share2/hitoshin/DockerShared:/notebooks/DockerShared2 \
+  -v /share/hitoshin/DockerShared:/notebooks/DockerShared1 \
   -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro \
   -v ~/log:/root/log \
   -v /dev/shm:/dev/shm \
@@ -22,7 +22,7 @@ docker run \
   -e __GLX_VENDOR_LIBRARY_NAME=nvidia \
   -e __NV_PRIME_RENDER_OFFLOAD=1 \
   --net host \
-  --name hitoshi_allX \
+  --name hitoshi_$2 \
   -it hitoshi/allinone:$1 \
   /bin/bash -c " \
   cp /root/.Xauthority.copy /root/.Xauthority; \
