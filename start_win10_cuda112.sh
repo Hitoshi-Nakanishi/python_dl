@@ -5,7 +5,7 @@
 # ``` chmod -R 774 dir_name && chown -R $(LUID):$(LGID) dir_name ```
 
 docker run \
-  -v /home/hitoshin:/notebooks/DockerShared \
+  -v /mnt/c/Users/hitos:/notebooks/DockerShared \
   -v /mnt/d:/notebooks/DockerShared4 \
   -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro \
   -v ~/log:/root/log \
